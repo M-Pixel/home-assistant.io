@@ -753,17 +753,31 @@ You can, but you cannot run them both at the same time. Only one of them can be 
 
 Switching does not require renaming your devices.
 
-1. Disable the Z-Wave integration. **Do not remove the Z-Wave integration or you will lose all device and entity naming.** This will automatically stop the official Z-Wave JS add-on.
+1. From _Settings_ / _Devices & Services_, **disable** the "Z-Wave JS" integration. Each integration card has a three-dots menu in the corner - this is where the disable action can be found. **Do not Remove the Z-Wave JS integration, or you will lose all device and entity naming.** This will automatically stop the official Z-Wave JS add-on.
 
-2. Note your network security keys from the official add-on.
+2. From _Settings_ / _Add-ons_ / _Z-Wave JS_ / _Configuration_, find your network security keys and device path - **copy** them somwhere (e.g. empty text document, password manager, piece of paper).
 
-3. Install and configure the Z-Wave JS UI add-on, including setting the location of your Z-Wave device and the network security keys.
+3. From _Settings_ / _Add-ons_ / _ADD-ON STORE_, click on the _Z-Wave JS UI_ tile, and **Install** it.
 
-4. Add the Z-Wave integration again (even though it is still installed), and uncheck the "Use the Z-Wave JS Supervisor add-on". Enter the correct address for the community add-on in the URL field in the next step.
+4. Once Z-Wave JS UI is installed, its _Hostname_ should appear. It will be something like `a0d7b954-zwavejs2mqtt`. Add this to your notes.
 
-5. Uninstall the official Z-Wave JS add-on.
+5. **Open the Web UI**.
 
-6. Enable the Z-Wave integration.
+6. A prompt will appear asking about usage statistics.  Choose either **OK** or **NO**, according to your preference.
+
+7. Open the Z-Wave JS UI settings by clicking the **cog icon** in the left navigation bar _of the current Web UI_ (not the outer Home Assistant navigation bar).  Expand the _Z-Wave_ section, and fill in the device path ("Serial Port") and network security keys that you recorded in step 2. **Save** your changes.
+
+8. Although the Z-Wave JS Integration was only disabled and not removed, you need to "add" it. From _Settings_ / _Devices & Services_, click **ADD INTEGRATION**, and choose "Z-Wave" (not "Add a Z-Wave device").
+
+9. A popup titled "Select connection method" should appear - **un-check** "Use the Z-Wave JS Supervisor add-on" and **SUBMIT**.
+
+10. You will be asked to enter Z-Wave JS UI's websocket URL. Replace `localhost` with the hostname that you recorded in step 4, and **SUBMIT**.
+
+11. From _Settings_ / _Add-ons_ / _Z-Wave JS_, **UNINSTALL** the official Z-Wave JS add-on.
+
+12. From _Settings_ / _Devices & Services_, **ENABLE** the Z-Wave integration (you may need to **SHOW** it first, from the filter section of the search bar).
+
+When you have finished, Z-Wave JS UI may still be in the process of re-interviewing your devices.  Battery-powered devices may not work until they are woken up.
 
 #### What's the benefit of using Z-Wave JS UI add-on over the official Add-On?
 
